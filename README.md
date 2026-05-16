@@ -109,7 +109,7 @@ Completion check:
 ```bash
 cd examples/
 ocloop \
-  --model anthropic/claude-sonnet-4-5 \
+  --model openai/gpt-4.5 \
   --prompt ./loop-prompt.md \
   --plan ./PLAN.md \
   --run
@@ -119,7 +119,7 @@ Or with relative paths from any directory:
 
 ```bash
 ocloop \
-  --model anthropic/claude-sonnet-4-5 \
+  --model openai/gpt-4.5 \
   --prompt /path/to/loop-prompt.md \
   --plan /path/to/PLAN.md
 ```
