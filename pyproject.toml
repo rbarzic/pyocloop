@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyocloop"
-version = "0.1.0"
+version = "0.2.0"
 description = "TUI loop harness that orchestrates OpenCode to execute tasks from a PLAN.md file iteratively"
 readme = "README.md"
 license = { text = "MIT" }
