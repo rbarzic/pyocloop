@@ -36,7 +36,17 @@ pip install -e .
 ## Usage
 
 ```
-ocloop [OPTIONS]
+ocloop COMMAND [OPTIONS]
+
+Commands:
+  run        Run the OCLoop orchestration loop
+  bootstrap  Create a starter PLAN.md and .loop-prompt.md in a directory
+```
+
+### `ocloop run`
+
+```
+ocloop run [OPTIONS]
 
 Options:
   -m, --model TEXT   Model to use (format: providerID/modelID).
@@ -49,6 +59,19 @@ Options:
   -d, --debug        Debug mode (skip plan file validation)
   --verbose          Log every SSE event in the activity panel
   --log PATH         Write all log entries to a file
+  --help             Show this message and exit
+```
+
+### `ocloop bootstrap`
+
+```
+ocloop bootstrap [DIRECTORY] [OPTIONS]
+
+Arguments:
+  DIRECTORY          Directory to initialise  [default: current directory]
+
+Options:
+  -f, --force        Overwrite existing files
   --help             Show this message and exit
 ```
 
@@ -106,24 +129,26 @@ Completion check:
   <plan-complete>SUMMARY</plan-complete>
 ```
 
-**Run:**
+**Bootstrap and run:**
 
 ```bash
-cd examples/
-ocloop \
-  --model openai/gpt-4.5 \
-  --prompt ./loop-prompt.md \
-  --plan ./PLAN.md \
-  --run
+# Create starter files in a new directory
+ocloop bootstrap ./myproject
+
+# Edit the generated files, then run from inside the directory
+# (--plan defaults to PLAN.md and --prompt defaults to .loop-prompt.md)
+cd myproject
+ocloop run --model openai/gpt-4.5 --run
 ```
 
-Or with relative paths from any directory:
+Or run from outside the directory by specifying paths explicitly:
 
 ```bash
-ocloop \
+ocloop run \
   --model openai/gpt-4.5 \
-  --prompt /path/to/loop-prompt.md \
-  --plan /path/to/PLAN.md
+  --plan ./myproject/PLAN.md \
+  --prompt ./myproject/.loop-prompt.md \
+  --run
 ```
 
 ## Plan file format
