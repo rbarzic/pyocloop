@@ -1,5 +1,7 @@
 # pyocloop
 
+![pyocloop screenshot](pyocloop.png)
+
 A Python TUI that orchestrates [OpenCode](https://opencode.ai) to execute tasks from a `PLAN.md` file iteratively, one session at a time.
 
 pyocloop is inspired by and compatible with [ocloop](https://github.com/d3vr/ocloop) by [@d3vr](https://github.com/d3vr). It reimplements the same concept in pure Python using [Textual](https://textual.textualize.io/), fixing TUI display issues and a path resolution bug present in the original.
@@ -144,6 +146,27 @@ The loop ends when OpenCode appends this tag to the plan file:
 - Use `{{PLAN_FILE}}` as the placeholder — pyocloop replaces it with the absolute path at runtime
 - Instruct OpenCode to mark tasks `[x]` after completion and append `<plan-complete>` when all done
 - Keep prompts focused: one task per session works best for reliable progress tracking
+
+## Available models
+
+Run `opencode models [provider]` to list models for a specific provider. Below are the models available at time of writing (your installation may differ):
+
+| Provider | `--model` value | Notes |
+|----------|----------------|-------|
+| OpenAI | `openai/gpt-5.5` | Latest flagship |
+| OpenAI | `openai/gpt-5.5-pro` | Pro tier |
+| OpenAI | `openai/gpt-5.5-fast` | Faster/cheaper |
+| OpenAI | `openai/gpt-5.4-mini` | Lightweight |
+| z.ai (coding) | `zai-coding-plan/glm-5.1` | Coding-optimised |
+| z.ai (coding) | `zai-coding-plan/glm-5-turbo` | Fast coding model |
+| z.ai (coding) | `zai-coding-plan/glm-4.7` | Previous gen |
+| z.ai (limited ctx) | `zai-limited-context/glm-5.1` | Smaller context window |
+| DeepSeek | `opencode/deepseek-v4-flash-free` | Free via opencode |
+| GitLab Duo | `gitlab/duo-chat-sonnet-4-6` | Anthropic Sonnet via GitLab |
+| GitLab Duo | `gitlab/duo-chat-opus-4-7` | Anthropic Opus via GitLab |
+| GitLab Duo | `gitlab/duo-chat-gpt-5-4` | GPT-5.4 via GitLab |
+
+> Anthropic models can be used directly if you configure the `anthropic` provider in opencode.
 
 ## Architecture
 

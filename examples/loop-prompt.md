@@ -21,7 +21,7 @@ Execute:
 After completion:
 1. Update {{PLAN_FILE}} marking completed items with [x] after each task completions
 
-2. If you discovered external knowledge (API behavior, library quirks, external repo details):
+2. If you discovered external knowledge (API behavior, library quirks, external repository  details):
    - Create docs/ directory if missing
    - Create or update docs/<topic>.md with your findings
    - Update AGENTS.md ## Research section (create file/section if missing), e.g:

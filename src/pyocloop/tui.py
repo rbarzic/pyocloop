@@ -372,7 +372,8 @@ class OcloopApp(App):
             etype = event.get("type", "")
             props = event.get("properties", {})
             if etype == "sse.connected":
-                self._log("info", "SSE connected", props.get("url", ""))
+                if self._verbose:
+                    self._log("info", "SSE connected", props.get("url", ""))
                 continue
             if etype == "sse.error":
                 self._log("error", "SSE error", props.get("error", ""))
